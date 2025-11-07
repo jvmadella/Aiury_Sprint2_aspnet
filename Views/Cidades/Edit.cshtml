@@ -1,0 +1,9 @@
+@model Aiury.ViewModels.CidadeViewModel
+@{
+    ViewData["Title"] = "Editar Cidade";
+}
+<form method="post">
+    @Html.AntiForgeryToken()
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <partial name="Create" />
+</form>

@@ -1,0 +1,94 @@
+@model IEnumerable<Aiury.Models.Cidades>
+@{
+    ViewData["Title"] = "Cidades";
+}
+
+<style>
+    .aiury-title {
+        font-weight: 600;
+        color: #3d6b61;
+        text-align: center;
+        margin-bottom: 25px;
+        font-size: 2rem;
+    }
+    .aiury-table-box {
+        background: #ffffff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    }
+    .table thead {
+        background: #e9daf7;
+        color: #3d6b61;
+    }
+    .btn-aiury {
+        border-radius: 8px;
+    }
+    .btn-aiury-primary {
+        background: #6a4c9c;
+        color: white;
+        border: none;
+    }
+    .btn-aiury-primary:hover {
+        background: #563a85;
+    }
+    .btn-aiury-outline {
+        border: 2px solid #6a4c9c;
+        color: #6a4c9c;
+    }
+    .btn-aiury-outline:hover {
+        background: #6a4c9c;
+        color: white;
+    }
+</style>
+
+<h2 class="aiury-title">Cidades Cadastradas</h2>
+
+<div class="mb-3 text-end">
+    <a class="btn btn-aiury-primary btn-aiury" asp-action="Create">Nova Cidade</a>
+</div>
+
+<div class="aiury-table-box">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Cidade</th>
+                <th>Estado</th>
+                <th>Região</th>
+                <th>ID da Cidade</th>
+                <th class="text-end"></th>
+            </tr>
+        </thead>
+        <tbody>
+@foreach (var item in Model)
+{
+    var sigla = item.IdEstado switch
+    {
+        1 => "SP",
+        2 => "RJ",
+        3 => "MG",
+        4 => "BA",
+        5 => "RS"
+    };
+
+    var regiao = sigla switch
+    {
+        "SP" or "RJ" or "MG" => "Sudeste",
+        "BA" => "Nordeste",
+        "RS" => "Sul"
+    };
+            <tr>
+                <td>@item.NomeCidade</td>
+                <td>@sigla</td>
+                <td>@regiao</td>
+                <td>@item.IdEstado</td>
+                <td class="text-end">
+                    <a class="btn btn-sm btn-secondary me-1" asp-action="Details" asp-route-id="@item.IdCidade">Detalhes</a>
+                    <a class="btn btn-sm btn-aiury-outline me-1" asp-action="Edit" asp-route-id="@item.IdCidade">Editar</a>
+                    <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.IdCidade">Excluir</a>
+                </td>
+            </tr>
+}
+        </tbody>
+    </table>
+</div>

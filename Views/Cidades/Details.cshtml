@@ -1,0 +1,13 @@
+@model Aiury.Models.Cidades
+@{
+    ViewData["Title"] = "Detalhes da Cidade";
+}
+<h1>@Model.NomeCidade</h1>
+
+<ul class="list-group">
+    <li class="list-group-item"><strong>ID da Cidade:</strong> @Model.IdCidade</li>
+    <li class="list-group-item"><strong>Quantidade de ajudantes cadastrados:</strong> 1</li>
+    <li class="list-group-item"><strong>Última atualização:</strong> 12/06/2025</li>
+</ul>
+
+<a class="btn btn-secondary mt-3" asp-action="Index">Voltar</a>

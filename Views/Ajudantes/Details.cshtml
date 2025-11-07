@@ -1,0 +1,12 @@
+@model Aiury.Models.Ajudantes
+@{
+    ViewData["Title"] = "Detalhes do Ajudante";
+}
+<h1>@Model.NomeReal</h1>
+<ul class="list-group">
+    <li class="list-group-item"><strong>Área:</strong> @Model.AreaAtuacao</li>
+    <li class="list-group-item"><strong>Motivação:</strong> @Model.Motivacao</li>
+    <li class="list-group-item"><strong>Data de Nascimento:</strong> @Model.DataNascimento.ToString("dd/MM/yyyy")</li>
+    <li class="list-group-item"><strong>ID da Cidade:</strong> @Model.IdCidade</li>
+</ul>
+<a class="btn btn-secondary mt-3" asp-action="Index">Voltar</a>

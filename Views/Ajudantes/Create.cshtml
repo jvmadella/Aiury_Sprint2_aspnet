@@ -1,0 +1,42 @@
+@model Aiury.ViewModels.AjudanteViewModel
+@{
+    ViewData["Title"] = "Novo Ajudante";
+}
+<h1>Novo Ajudante</h1>
+<form method="post" asp-action="Create">
+    @Html.AntiForgeryToken()
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <label asp-for="NomeReal" class="form-label"></label>
+            <input asp-for="NomeReal" class="form-control" />
+            <span asp-validation-for="NomeReal" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="AreaAtuacao" class="form-label"></label>
+            <input asp-for="AreaAtuacao" class="form-control" />
+            <span asp-validation-for="AreaAtuacao" class="text-danger"></span>
+        </div>
+        <div class="col-md-12">
+            <label asp-for="Motivacao" class="form-label"></label>
+            <input asp-for="Motivacao" class="form-control" />
+        </div>
+        <div class="col-md-4">
+            <label asp-for="DataNascimento" class="form-label"></label>
+            <input asp-for="DataNascimento" class="form-control" type="date" />
+            <span asp-validation-for="DataNascimento" class="text-danger"></span>
+        </div>
+        <div class="col-md-4">
+            <label asp-for="IdCidade" class="form-label"></label>
+            <input asp-for="IdCidade" class="form-control" />
+            <span asp-validation-for="IdCidade" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="mt-3">
+        <button class="btn btn-primary" type="submit">Salvar</button>
+        <a class="btn btn-secondary" asp-action="Index">Cancelar</a>
+    </div>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

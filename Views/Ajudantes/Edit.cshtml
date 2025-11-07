@@ -1,0 +1,9 @@
+@model Aiury.ViewModels.AjudanteViewModel
+@{
+    ViewData["Title"] = "Editar Ajudante";
+}
+<form method="post">
+    @Html.AntiForgeryToken()
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <partial name="Create" />
+</form>

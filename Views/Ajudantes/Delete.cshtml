@@ -1,0 +1,16 @@
+@model Aiury.Models.Ajudantes
+@{
+    ViewData["Title"] = "Confirmar Remoção";
+}
+<h1>Confirmar Remoção</h1>
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">@Model.NomeReal</h5>
+        <p class="card-text"><strong>Área:</strong> @Model.AreaAtuacao</p>
+        <form method="post">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-danger">Remover</button>
+            <a class="btn btn-secondary" asp-action="Index">Cancelar</a>
+        </form>
+    </div>
+</div>

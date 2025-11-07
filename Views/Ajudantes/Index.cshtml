@@ -1,0 +1,59 @@
+@model IEnumerable<Aiury.Models.Ajudantes>
+@{
+    ViewData["Title"] = "Ajudantes";
+    var cidades = ViewBag.CidadesMap as Dictionary<int,string>;
+}
+
+<style>
+    .aiury-title{font-weight:600;color:#3d6b61;text-align:center;margin-bottom:25px;font-size:2rem;}
+    .aiury-table-box{background:#fff;padding:25px;border-radius:12px;box-shadow:0 3px 10px rgba(0,0,0,0.08);}
+    .table thead{background:#e9daf7;color:#3d6b61;}
+    .btn-aiury{border-radius:8px;}
+    .btn-aiury-primary{background:#6a4c9c;color:#fff;border:none;}
+    .btn-aiury-primary:hover{background:#563a85;}
+    .btn-aiury-outline{border:2px solid #6a4c9c;color:#6a4c9c;}
+    .btn-aiury-outline:hover{background:#6a4c9c;color:#fff;}
+</style>
+
+<h2 class="aiury-title">Ajudantes Cadastrados</h2>
+
+<div class="mb-3 text-end">
+    <a class="btn btn-aiury-primary btn-aiury" asp-action="Create">Novo Ajudante</a>
+</div>
+
+<div class="aiury-table-box">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Área</th>
+                <th>Cidade</th>
+                <th>Data Nascimento</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+@foreach (var item in Model)
+{
+            <tr>
+                <td>@item.NomeReal</td>
+                <td>@item.AreaAtuacao</td>
+                <td>
+                    @(
+                        (cidades != null && cidades.TryGetValue(item.IdCidade, out var nomeCidade))
+                        ? nomeCidade
+                        : item.IdCidade.ToString()
+                    )
+                </td>
+                <td>@item.DataNascimento.ToShortDateString()</td>
+                <td class="text-end">
+                    <a class="btn btn-sm btn-secondary me-1" asp-action="Details" asp-route-id="@item.IdAjudante">Detalhes</a>
+                    <a class="btn btn-sm btn-aiury-outline me-1" asp-action="Edit" asp-route-id="@item.IdAjudante">Editar</a>
+                    <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.IdAjudante">Excluir</a>
+
+                </td>
+            </tr>
+}
+        </tbody>
+    </table>
+</div>

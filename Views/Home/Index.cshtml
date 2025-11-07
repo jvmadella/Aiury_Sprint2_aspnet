@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "Bem-vindo ao Aiury";
+}
+
+<style>
+    .aiury-hero {
+        background: #d7f2e3; /* verde pastel muito claro */
+        padding: 70px 20px;
+        border-radius: 12px;
+        text-align: center;
+    }
+    .aiury-title {
+        font-weight: 600;
+        color: #3d6b61; /* verde escuro suave */
+        font-size: 2.6rem;
+    }
+    .aiury-sub {
+        color: #3b3b3b;
+        font-size: 1.15rem;
+        max-width: 800px;
+        margin: 15px auto;
+    }
+    .aiury-btn {
+        padding: 12px 26px;
+        border-radius: 8px;
+        font-size: 1.05rem;
+    }
+    .aiury-btn-primary {
+        background-color: #6a4c9c; /* roxo */
+        color: white;
+        border: none;
+    }
+    .aiury-btn-primary:hover {
+        background-color: #563a85;
+    }
+    .aiury-btn-outline {
+        border: 2px solid #6a4c9c;
+        color: #6a4c9c;
+    }
+    .aiury-btn-outline:hover {
+        background-color: #6a4c9c;
+        color: white;
+    }
+
+    /* Seção inferior */
+    .aiury-section {
+        background: #e9daf7; /* roxo pastel bem claro */
+        padding: 35px;
+        border-radius: 12px;
+        margin-top: 40px;
+    }
+</style>
+
+<div class="aiury-hero">
+    <h1 class="aiury-title">Bem-vindo ao Aiury</h1>
+    <p class="aiury-sub">
+        Uma plataforma criada para conectar pessoas em sofrimento emocional a apoio psicológico, social e humano — de forma imediata, segura e acessível.
+    </p>
+
+    <div class="mt-4">
+        <a class="btn aiury-btn aiury-btn-primary me-2" asp-controller="Ajudantes" asp-action="Index">Ajudantes Disponíveis</a>
+        <a class="btn aiury-btn aiury-btn-outline" asp-controller="Cidades" asp-action="Index">Cidades Atendidas</a>
+    </div>
+</div>
+
+<div class="aiury-section text-center mt-5">
+    <h4 style="color:#3d6b61;">Por que o Aiury existe?</h4>
+    <p class="mt-2" style="max-width:850px; margin:auto;">
+        O Brasil enfrenta uma das maiores crises de saúde mental da história. Falta acesso, integração e acolhimento.
+        O Aiury nasce como uma ponte entre quem precisa de ajuda e quem pode ajudar — sem burocracia, sem julgamento, sem exposição.
+    </p>
+</div>
